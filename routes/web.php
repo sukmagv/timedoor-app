@@ -28,3 +28,8 @@ Route::post('/rating', [RatingController::class,'store'])->name('ratings.store')
 
 // AJAX
 Route::get('/authors/{author}/books', [RatingController::class,'booksByAuthor'])->name('authors.books');
+
+
+if (file_exists(base_path('routes/api.php'))) {
+    require base_path('routes/api.php');
+}
