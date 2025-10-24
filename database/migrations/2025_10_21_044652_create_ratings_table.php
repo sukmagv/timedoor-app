@@ -12,12 +12,11 @@ return new class extends Migration
     public function up() {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('book_id')->constrained()->cascadeOnDelete()->index();
-            $table->tinyInteger('score');
-            $table->string('voter_name')->nullable();
-            $table->timestamps();
-
-            $table->index(['book_id','score']);
+            $table->foreignId('book_id')->constrained()->cascadeOnDelete();
+            $table->string('voter_name');
+            $table->integer('score');
+            $table->datetime('created_at')->nullable();
+            $table->datetime('updated_at')->nullable();
         });
     }
 
